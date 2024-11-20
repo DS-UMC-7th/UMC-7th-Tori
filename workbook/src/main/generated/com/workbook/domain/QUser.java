@@ -42,6 +42,8 @@ public class QUser extends EntityPathBase<User> {
 
     public final ListPath<com.workbook.domain.mapping.UserAgree, com.workbook.domain.mapping.QUserAgree> userAgreements = this.<com.workbook.domain.mapping.UserAgree, com.workbook.domain.mapping.QUserAgree>createList("userAgreements", com.workbook.domain.mapping.UserAgree.class, com.workbook.domain.mapping.QUserAgree.class, PathInits.DIRECT2);
 
+    public final ListPath<com.workbook.domain.mapping.UserFoodCategory, com.workbook.domain.mapping.QUserFoodCategory> userFoodCategories = this.<com.workbook.domain.mapping.UserFoodCategory, com.workbook.domain.mapping.QUserFoodCategory>createList("userFoodCategories", com.workbook.domain.mapping.UserFoodCategory.class, com.workbook.domain.mapping.QUserFoodCategory.class, PathInits.DIRECT2);
+
     public QUser(String variable) {
         super(User.class, forVariable(variable));
     }
