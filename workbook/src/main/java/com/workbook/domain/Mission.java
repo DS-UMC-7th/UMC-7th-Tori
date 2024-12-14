@@ -3,9 +3,7 @@ package com.workbook.domain;
 import com.workbook.domain.common.BaseEntity;
 import com.workbook.domain.mapping.UserMission;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,21 +11,23 @@ import java.util.List;
 
 @Entity
 @Getter
+@Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Mission extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long missionId;
 
     private LocalDate deadline;
 
-    private Integer target_price;
+    private Integer targetPrice;
 
     private Integer point;
 
-    private String mission_code;
+    private String missionCode;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id")
@@ -35,5 +35,5 @@ public class Mission extends BaseEntity {
 
     @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
     private List<UserMission> userMissionList = new ArrayList<>();
-
 }
+

@@ -27,7 +27,7 @@ public class QMenu extends EntityPathBase<Menu> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 
-    public final NumberPath<Long> id = createNumber("id", Long.class);
+    public final NumberPath<Long> menu_id = createNumber("menu_id", Long.class);
 
     public final StringPath name = createString("name");
 

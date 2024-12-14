@@ -29,11 +29,11 @@ public class QRestaurant extends EntityPathBase<Restaurant> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 
-    public final NumberPath<Long> id = createNumber("id", Long.class);
-
     public final StringPath name = createString("name");
 
     public final NumberPath<Integer> rating = createNumber("rating", Integer.class);
+
+    public final NumberPath<Long> restaurant_id = createNumber("restaurant_id", Long.class);
 
     public final QRestaurantCategory restaurantCategory;
 

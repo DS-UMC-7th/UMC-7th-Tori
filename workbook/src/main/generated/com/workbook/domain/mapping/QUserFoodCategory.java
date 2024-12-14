@@ -29,12 +29,12 @@ public class QUserFoodCategory extends EntityPathBase<UserFoodCategory> {
 
     public final com.workbook.domain.QFoodCategory foodCategory;
 
-    public final NumberPath<Long> id = createNumber("id", Long.class);
-
     //inherited
     public final DateTimePath<java.time.LocalDateTime> updatedAt = _super.updatedAt;
 
     public final com.workbook.domain.QUser user;
+
+    public final NumberPath<Long> user_foodcategory_id = createNumber("user_foodcategory_id", Long.class);
 
     public QUserFoodCategory(String variable) {
         this(UserFoodCategory.class, forVariable(variable), INITS);

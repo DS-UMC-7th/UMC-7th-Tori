@@ -26,9 +26,9 @@ public class QTerms extends EntityPathBase<Terms> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 
-    public final NumberPath<Long> id = createNumber("id", Long.class);
-
     public final EnumPath<com.workbook.domain.enums.Optional> optional = createEnum("optional", com.workbook.domain.enums.Optional.class);
+
+    public final NumberPath<Long> terms_id = createNumber("terms_id", Long.class);
 
     public final StringPath title = createString("title");
 

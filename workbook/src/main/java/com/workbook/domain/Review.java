@@ -16,11 +16,11 @@ public class Review extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long review_id;
 
     private String content;
 
-    private String rating;
+    private Integer rating;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

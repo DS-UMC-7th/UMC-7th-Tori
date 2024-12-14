@@ -16,7 +16,7 @@ public class RestaurantCategory extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long restaurantcategory_id;
 
     private String name;
 }

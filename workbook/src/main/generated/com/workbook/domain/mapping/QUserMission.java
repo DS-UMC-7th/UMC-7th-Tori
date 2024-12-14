@@ -27,8 +27,6 @@ public class QUserMission extends EntityPathBase<UserMission> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 
-    public final NumberPath<Long> id = createNumber("id", Long.class);
-
     public final com.workbook.domain.QMission mission;
 
     public final EnumPath<com.workbook.domain.enums.MissionStatus> status = createEnum("status", com.workbook.domain.enums.MissionStatus.class);
@@ -37,6 +35,8 @@ public class QUserMission extends EntityPathBase<UserMission> {
     public final DateTimePath<java.time.LocalDateTime> updatedAt = _super.updatedAt;
 
     public final com.workbook.domain.QUser user;
+
+    public final NumberPath<Long> user_mission_id = createNumber("user_mission_id", Long.class);
 
     public QUserMission(String variable) {
         this(UserMission.class, forVariable(variable), INITS);

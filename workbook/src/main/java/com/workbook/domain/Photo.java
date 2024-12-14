@@ -16,7 +16,7 @@ public class Photo extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long photo_id;
 
     private String url;
 

@@ -27,14 +27,14 @@ public class QUserAgree extends EntityPathBase<UserAgree> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 
-    public final NumberPath<Long> id = createNumber("id", Long.class);
-
     public final com.workbook.domain.QTerms terms;
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> updatedAt = _super.updatedAt;
 
     public final com.workbook.domain.QUser user;
+
+    public final NumberPath<Long> user_agree_id = createNumber("user_agree_id", Long.class);
 
     public QUserAgree(String variable) {
         this(UserAgree.class, forVariable(variable), INITS);

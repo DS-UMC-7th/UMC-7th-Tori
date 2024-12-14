@@ -2,7 +2,6 @@ package com.workbook.converter;
 
 import com.workbook.domain.User;
 import com.workbook.domain.enums.Gender;
-import com.workbook.domain.mapping.UserFoodCategory;
 import com.workbook.web.dto.UserRequestDTO;
 import com.workbook.web.dto.UserResponseDTO;
 
@@ -13,7 +12,7 @@ public class UserConverter {
 
     public static UserResponseDTO.JoinResultDTO toJoinResultDTO(User user){
         return UserResponseDTO.JoinResultDTO.builder()
-                .userId(user.getId())
+                .userId(user.getUserId())
                 .createdAt(LocalDateTime.now())
                 .build();
 

@@ -29,15 +29,15 @@ public class QMission extends EntityPathBase<Mission> {
 
     public final DatePath<java.time.LocalDate> deadline = createDate("deadline", java.time.LocalDate.class);
 
-    public final NumberPath<Long> id = createNumber("id", Long.class);
+    public final StringPath missionCode = createString("missionCode");
 
-    public final StringPath mission_code = createString("mission_code");
+    public final NumberPath<Long> missionId = createNumber("missionId", Long.class);
 
     public final NumberPath<Integer> point = createNumber("point", Integer.class);
 
     public final QRestaurant restaurant;
 
-    public final NumberPath<Integer> target_price = createNumber("target_price", Integer.class);
+    public final NumberPath<Integer> targetPrice = createNumber("targetPrice", Integer.class);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> updatedAt = _super.updatedAt;

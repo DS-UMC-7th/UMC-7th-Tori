@@ -24,7 +24,7 @@ public class QFoodCategory extends EntityPathBase<FoodCategory> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 
-    public final NumberPath<Long> id = createNumber("id", Long.class);
+    public final NumberPath<Long> foodcategory_id = createNumber("foodcategory_id", Long.class);
 
     public final StringPath name = createString("name");
 

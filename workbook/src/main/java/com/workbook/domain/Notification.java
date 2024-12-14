@@ -16,7 +16,7 @@ public class Notification extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long notification_id;
 
     private String content;
 
