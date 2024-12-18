@@ -18,7 +18,7 @@ public class Restaurant extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long restaurant_id;
+    private Long restaurantId;
 
     private String name;
 
@@ -33,7 +33,7 @@ public class Restaurant extends BaseEntity {
     @Override
     public String toString() {
         return "Restaurant{" +
-                "id=" + restaurant_id +
+                "id=" + restaurantId +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", rating=" + rating +

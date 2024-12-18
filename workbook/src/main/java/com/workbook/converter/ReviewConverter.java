@@ -31,7 +31,7 @@ public class ReviewConverter {
         return reviews.stream()
                 .map(review -> ReviewResponseDTO.GetReviewResponseDTO.builder()
                         .reviewId(review.getReview_id())
-                        .restaurantId(review.getRestaurant().getRestaurant_id())
+                        .restaurantId(review.getRestaurant().getRestaurantId())
                         .rating(review.getRating())
                         .content(review.getContent())
                         .createdAt(review.getCreatedAt())

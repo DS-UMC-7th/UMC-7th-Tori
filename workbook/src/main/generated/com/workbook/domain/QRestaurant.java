@@ -33,9 +33,9 @@ public class QRestaurant extends EntityPathBase<Restaurant> {
 
     public final NumberPath<Integer> rating = createNumber("rating", Integer.class);
 
-    public final NumberPath<Long> restaurant_id = createNumber("restaurant_id", Long.class);
-
     public final QRestaurantCategory restaurantCategory;
+
+    public final NumberPath<Long> restaurantId = createNumber("restaurantId", Long.class);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> updatedAt = _super.updatedAt;
