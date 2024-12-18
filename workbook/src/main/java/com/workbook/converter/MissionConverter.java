@@ -53,7 +53,7 @@ public class MissionConverter {
 
     public static MissionResponseDTO.MissionListResponseDTO toMissionListResponseDTO(Page<Mission> missionPage) {
         List<MissionResponseDTO.MissionDTO> missions = missionPage.getContent().stream()
-                .map(mission -> MissionResponseDTO.MissionDTO.builder() // .map 부분에서 builder 사용
+                .map(mission -> MissionResponseDTO.MissionDTO.builder()
                         .missionId(mission.getMissionId())
                         .deadline(mission.getDeadline())
                         .targetPrice(mission.getTargetPrice())

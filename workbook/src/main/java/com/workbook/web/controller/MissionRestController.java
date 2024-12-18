@@ -29,6 +29,7 @@ public class MissionRestController {
 
     @PostMapping("/")
     public ApiResponse<MissionResponseDTO.CreateMissionResponseDTO> join(@RequestBody @Valid MissionRequestDTO.CreateMissionRequestDTO request) {
+
         Mission mission = missionCommandService.createMission(request);
         return ApiResponse.onSuccess(MissionConverter.toCreateMissionResponseDTO(mission));
     }
@@ -41,13 +42,35 @@ public class MissionRestController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "AUTH004", description = "access 토큰 만료", content = @Content(schema = @Schema(implementation = ApiResponse.class))),
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "AUTH006", description = "access 토큰 모양이 이상함", content = @Content(schema = @Schema(implementation = ApiResponse.class))),
     })
-    public ApiResponse<List<MissionResponseDTO.MissionDTO>> getMissionsByRestaurant(@PathVariable Long restaurantId, @RequestParam @PageValid Integer page) {
+    public ApiResponse<MissionResponseDTO.MissionListResponseDTO> getMissionsByRestaurant(@PathVariable Long restaurantId, @RequestParam @PageValid Integer page) {
+        
         if (page < 1) {
             throw new IllegalArgumentException("페이지 번호는 1 이상이어야 합니다.");
         }
 
         Page<Mission> missions = missionQueryService.getMissionsByRestaurant(restaurantId, page - 1);
-        List<MissionResponseDTO.MissionDTO> missionDTOList = MissionConverter.toMissionDTOList(missions.getContent());
-        return ApiResponse.onSuccess(missionDTOList);
+        MissionResponseDTO.MissionListResponseDTO missionListResponseDTO = MissionConverter.toMissionListResponseDTO(missions);
+        return ApiResponse.onSuccess(missionListResponseDTO);
+    }
+
+    @GetMapping("/challenging")
+    @Operation(summary = "내가 진행 중인 미션 목록 조회", description = "내가 진행 중인 미션을 페이징 처리하여 조회합니다.")
+    @ApiResponses({
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200", description = "OK ,성공"),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "AUTH003", description = "access 토큰을 주세요!", content = @Content(schema = @Schema(implementation = ApiResponse.class))),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "AUTH004", description = "access 토큰 만료", content = @Content(schema = @Schema(implementation = ApiResponse.class))),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "AUTH006", description = "access 토큰 모양이 이상함", content = @Content(schema = @Schema(implementation = ApiResponse.class))),
+    })
+    public ApiResponse<MissionResponseDTO.MissionListResponseDTO> getMissionsByUserId(@RequestParam @PageValid Integer page) {
+
+        Long userId = 1L;
+
+        if (page < 1) {
+            throw new IllegalArgumentException("페이지 번호는 1 이상이어야 합니다.");
+        }
+
+        Page<Mission> missions = missionQueryService.getMissionsByUserId(userId, page - 1);
+        MissionResponseDTO.MissionListResponseDTO missionListResponseDTO = MissionConverter.toMissionListResponseDTO(missions);
+        return ApiResponse.onSuccess(missionListResponseDTO);
     }
 }
