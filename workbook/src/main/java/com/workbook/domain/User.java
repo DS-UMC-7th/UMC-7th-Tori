@@ -2,6 +2,7 @@ package com.workbook.domain;
 
 import com.workbook.domain.common.BaseEntity;
 import com.workbook.domain.enums.Gender;
+import com.workbook.domain.enums.Role;
 import com.workbook.domain.mapping.UserAgree;
 import com.workbook.domain.mapping.UserFoodCategory;
 import jakarta.persistence.*;
@@ -39,6 +40,15 @@ public class User extends BaseEntity {
 
     private String address;
 
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
@@ -47,5 +57,9 @@ public class User extends BaseEntity {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserFoodCategory> userFoodCategories = new ArrayList<>();
+
+    public void encodePassword(String password) {
+        this.password = password;
+    }
 
 }

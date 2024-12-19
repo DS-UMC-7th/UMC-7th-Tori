@@ -29,11 +29,17 @@ public class QUser extends EntityPathBase<User> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 
+    public final StringPath email = createString("email");
+
     public final EnumPath<com.workbook.domain.enums.Gender> gender = createEnum("gender", com.workbook.domain.enums.Gender.class);
 
     public final StringPath name = createString("name");
 
     public final StringPath nickname = createString("nickname");
+
+    public final StringPath password = createString("password");
+
+    public final EnumPath<com.workbook.domain.enums.Role> role = createEnum("role", com.workbook.domain.enums.Role.class);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> updatedAt = _super.updatedAt;

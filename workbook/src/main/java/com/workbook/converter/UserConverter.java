@@ -35,11 +35,14 @@ public class UserConverter {
 
         return User.builder()
                 .name(request.getName())
+                .email(request.getEmail())
+                .password(request.getPassword())
                 .nickname(request.getNickname())
                 .birth(request.getBirth())
                 .address(request.getAddress())
                 .gender(gender)
                 .userFoodCategories(new ArrayList<>())
+                .role(request.getRole())
                 .build();
     }
 }
